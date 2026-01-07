@@ -1,6 +1,6 @@
 # ForoTec (MVP)
 
-MVP inicial para un foro estilo Reddit del Instituto Tecnológico de Costa Rica. Este repositorio separa la web (Next.js) y la API (Nest.js) para mantener una arquitectura no monolítica.
+MVP inicial para un foro estilo Reddit. Este repositorio separa la web (Next.js) y la API (Nest.js) para mantener una arquitectura no monolítica.
 
 ## ¿Qué está hecho actualmente?
 - Estructura base del monorepo con `apps/web` (Next.js + TypeScript + Tailwind) y `apps/api` (Nest.js + TypeScript).
