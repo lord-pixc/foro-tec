@@ -1,0 +1,31 @@
+# Dependencias
+node_modules
+.pnp
+.pnp.js
+
+# Build
+.next
+out
+dist
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Entorno
+.env
+.env.local
+.env.*.local
+
+# Prisma
+prisma/dev.db
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea
+.vscode
