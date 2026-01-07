@@ -51,6 +51,9 @@ export default function LoginPage() {
           <button className="mt-2 text-foro-blue underline">
             Recuperar acceso
           </button>
+          <p className="mt-4 text-xs uppercase tracking-wide text-foro-gray">
+            Autenticación gestionada con BetterAuth
+          </p>
         </div>
       </div>
     </div>

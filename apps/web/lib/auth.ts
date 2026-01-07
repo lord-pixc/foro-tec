@@ -1,8 +1,12 @@
-// Configuración futura de Auth.js
-// Aquí se declarará la estrategia de autenticación y los proveedores.
-// Por ahora se deja como placeholder para el maqueteo del MVP.
+import { prisma } from "@foro-tec/prisma";
+import { betterAuth } from "better-auth";
+import { prismaAdapter } from "better-auth/adapters/prisma";
 
-export const authConfigPlaceholder = {
-  providers: [],
-  session: { strategy: "jwt" }
-};
+export const auth = betterAuth({
+  database: prismaAdapter(prisma, {
+    provider: "postgresql"
+  }),
+  emailAndPassword: {
+    enabled: true
+  }
+});
