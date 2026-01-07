@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos base del MVP */
+body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+/* Estilos para tarjetas reutilizables */
+.card {
+  @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+}
