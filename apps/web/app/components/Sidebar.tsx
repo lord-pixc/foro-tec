@@ -1,14 +1,15 @@
 import Link from "next/link";
 
 const communities = [
-  { name: "Tecnología", href: "/" },
-  { name: "Innovación", href: "/" },
-  { name: "Vida estudiantil", href: "/" }
+  { name: "Tecnología", href: "/comunidades/tecnologia" },
+  { name: "Innovación", href: "/comunidades/innovacion" },
+  { name: "Vida estudiantil", href: "/comunidades/vida-estudiantil" }
 ];
 
 const shortcuts = [
-  { name: "Publicar", href: "/" },
+  { name: "Publicar", href: "/publicaciones/nueva" },
   { name: "Mis publicaciones", href: "/perfil" },
+  { name: "Comunidades", href: "/comunidades" },
   { name: "Panel admin", href: "/admin" }
 ];
 

@@ -1,0 +1,62 @@
+// Esquema base de Prisma para ForoTec
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String                @id @default(uuid())
+  email       String                @unique
+  name        String
+  role        String                @default("user")
+  memberships CommunityMembership[]
+  posts       Post[]
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+}
+
+model Community {
+  id          String                @id @default(uuid())
+  name        String
+  slug        String                @unique
+  description String?
+  coverImage  String?
+  members     CommunityMembership[]
+  posts       Post[]
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+}
+
+model CommunityMembership {
+  id          String    @id @default(uuid())
+  userId      String
+  communityId String
+  role        String    @default("member")
+  createdAt   DateTime  @default(now())
+
+  user      User      @relation(fields: [userId], references: [id])
+  community Community @relation(fields: [communityId], references: [id])
+
+  @@unique([userId, communityId])
+}
+
+model Post {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  summary     String?
+  tags        String[]
+  authorId    String
+  communityId String
+  isDeleted   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author    User      @relation(fields: [authorId], references: [id])
+  community Community @relation(fields: [communityId], references: [id])
+}
