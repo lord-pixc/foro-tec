@@ -1,10 +1,22 @@
 import { PrismaClient } from './generated/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 
+function getDatabaseUrl() {
+    const databaseUrl = process.env.DATABASE_URL
+
+    if (!databaseUrl) {
+        throw new Error(
+            'Missing required environment variable: DATABASE_URL. Set DATABASE_URL before starting the API.'
+        )
+    }
+
+    return databaseUrl
+}
+
 function createPrismaClient() {
     const adapter =
         globalThis.adapterGlobal ??
-        new PrismaPg({ connectionString: process.env.DATABASE_URL })
+        new PrismaPg({ connectionString: getDatabaseUrl() })
     return new PrismaClient({ adapter })
 }
 
